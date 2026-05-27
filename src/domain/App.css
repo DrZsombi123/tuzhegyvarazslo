@@ -1,0 +1,85 @@
+.reader-panel {
+  min-height: 640px;
+  padding: clamp(28px, 5vw, 64px);
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  background:
+    radial-gradient(ellipse 800px 400px at 50% 0%, rgba(249, 115, 22, 0.06), transparent 70%),
+    linear-gradient(180deg, var(--panel) 0%, #14110d 100%);
+  position: relative;
+}
+
+.reader-panel::before,
+.reader-panel::after {
+  content: '';
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--gold-soft);
+  pointer-events: none;
+}
+.reader-panel::before { top: 14px; left: 14px; border-right: none; border-bottom: none; }
+.reader-panel::after  { bottom: 14px; right: 14px; border-left: none; border-top: none; }
+
+.node-number {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+}
+
+.story-text {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 21px;
+  line-height: 1.78;
+  color: var(--story);
+  margin: 0;
+  max-width: 64ch;
+}
+
+.story-text::first-letter {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 3.1em;
+  float: left;
+  line-height: 0.92;
+  padding: 6px 10px 0 0;
+  color: var(--accent-strong);
+  text-shadow: 0 2px 14px rgba(249, 115, 22, 0.45);
+}
+
+.choice-button {
+  min-height: 64px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(36, 27, 21, 0.85), rgba(26, 20, 16, 0.85));
+  padding: 14px 18px 14px 14px;
+  font-family: 'EB Garamond', serif;
+  font-size: 17px;
+  color: var(--story);
+  cursor: pointer;
+  transition: border-color 180ms ease, transform 160ms ease;
+}
+
+.choice-button:hover:not(:disabled) {
+  border-color: var(--accent-strong);
+  transform: translateX(2px);
+}
+
+.choice-marker {
+  width: 30px;
+  height: 30px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--gold-soft);
+  background: rgba(245, 158, 11, 0.08);
+  color: var(--gold);
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+}
