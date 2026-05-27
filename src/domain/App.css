@@ -145,3 +145,61 @@
   border-radius: 10px;
   cursor: pointer;
 }
+
+.sheet {
+  padding: 20px;
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(249, 115, 22, 0.07), transparent 60%),
+    linear-gradient(180deg, var(--panel) 0%, var(--panel-soft) 100%);
+}
+
+.stat {
+  min-height: 78px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  column-gap: 10px;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(12, 10, 9, 0.4);
+}
+
+.stat svg {
+  grid-row: span 2;
+  color: var(--accent-strong);
+  filter: drop-shadow(0 0 6px rgba(249, 115, 22, 0.45));
+}
+
+.stat strong {
+  color: var(--ink);
+  font-family: 'Cinzel', serif;
+  font-size: 19px;
+  letter-spacing: 0.05em;
+}
+
+.stat-bar {
+  height: 4px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  grid-column: 1 / -1;
+  overflow: hidden;
+}
+
+.stat-bar > span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+  border-radius: 2px;
+  transition: width 320ms ease;
+}
+
+.stat-bar.bar-stamina > span { background: linear-gradient(90deg, var(--success), #10b981); }
+.stat-bar.bar-luck    > span { background: linear-gradient(90deg, #fbbf24, var(--gold)); }
+
+@media (max-width: 1100px) { .game-layout { grid-template-columns: 1fr; } }
+@media (max-width: 440px)  { .stat-grid { grid-template-columns: 1fr; } }
