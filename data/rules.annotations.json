@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "notes": [
+    "A teljes szoveg nem szerepel a repoban. Ez a fajl csak strukturalt szabaly-kiegesziteseket tarol.",
+    "A parser automatikusan felismeri a lapozz hivatkozasokat es az ellenfelek stat sorait; ide kerulnek a kezzel pontositando hatasok."
+  ],
+  "nodes": {
+    "1": {
+      "entryEffects": [],
+      "choiceOverrides": []
+    },
+    "400": {
+      "terminal": "victory"
+    }
+  }
+}

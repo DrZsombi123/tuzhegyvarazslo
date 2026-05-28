@@ -1,0 +1,159 @@
+{
+  "meta": {
+    "title": "A Tűzhegy Varázslója — demo adat",
+    "source": "sample",
+    "generatedAt": "2026-05-23T00:00:00.000Z",
+    "nodeCount": 7
+  },
+  "nodes": {
+    "1": {
+      "id": 1,
+      "text": "Két napi gyaloglás után egy sötét barlang bejáratánál állsz. A kardod markolata hideg a kezedben. A mélyből huzatos levegő áramlik feléd.",
+      "choices": [
+        {
+          "label": "Belépsz a barlangba",
+          "target": 2,
+          "effects": []
+        },
+        {
+          "label": "A patak felé kerülő utat keresel",
+          "target": 3,
+          "effects": []
+        }
+      ],
+      "encounters": [],
+      "entryEffects": []
+    },
+    "2": {
+      "id": 2,
+      "text": "A folyosón egy alacsony, fegyveres őr állt utadba. Nem enged tovább, és rád támad.",
+      "choices": [
+        {
+          "label": "A harc után továbbmész",
+          "target": 4,
+          "requires": [
+            {
+              "type": "flag",
+              "flag": "defeated:ork-or-1"
+            }
+          ],
+          "effects": [
+            {
+              "type": "addGold",
+              "amount": 2
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        {
+          "id": "ork-or-1",
+          "name": "Ork őr",
+          "skill": 6,
+          "stamina": 5
+        }
+      ],
+      "entryEffects": []
+    },
+    "3": {
+      "id": 3,
+      "text": "A patakparton egy rozsdaette kulcsot találsz. Nem tűnik értékesnek, de elfér a hátizsákban.",
+      "choices": [
+        {
+          "label": "Visszatérsz a barlanghoz",
+          "target": 2,
+          "effects": [
+            {
+              "type": "addItem",
+              "item": "Rozsdás kulcs"
+            }
+          ]
+        }
+      ],
+      "encounters": [],
+      "entryEffects": []
+    },
+    "4": {
+      "id": 4,
+      "text": "Egy lezárt ajtóhoz érsz. A zár körül régi karcolások látszanak. Tedd próbára Szerencsédet, hogy észrevedd-e a rejtett csapdát.",
+      "choices": [
+        {
+          "label": "Kinyitod a zárat a rozsdás kulccsal",
+          "target": 5,
+          "requires": [
+            {
+              "type": "item",
+              "item": "Rozsdás kulcs"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "label": "Betöröd az ajtót",
+          "target": 5,
+          "effects": [
+            {
+              "type": "changeStamina",
+              "amount": -3
+            }
+          ]
+        }
+      ],
+      "encounters": [],
+      "entryEffects": [],
+      "luckCheck": {
+        "onLucky": 5,
+        "onUnlucky": 7
+      }
+    },
+    "5": {
+      "id": 5,
+      "text": "A kis kamrában néhány arany és egy üveg ital vár. A kijáratnál halvány fény látszik.",
+      "choices": [
+        {
+          "label": "Magadhoz veszed a kincset és kilépsz",
+          "target": 6,
+          "effects": [
+            {
+              "type": "addGold",
+              "amount": 5
+            },
+            {
+              "type": "addItem",
+              "item": "Ezüst medál"
+            }
+          ]
+        }
+      ],
+      "encounters": [],
+      "entryEffects": []
+    },
+    "6": {
+      "id": 6,
+      "text": "A demo kaland véget ér. A teljes játékhoz futtasd az npm run extract:book parancsot a helyi PDF-fel.",
+      "choices": [],
+      "encounters": [],
+      "entryEffects": [],
+      "terminal": "victory"
+    },
+    "7": {
+      "id": 7,
+      "text": "A rejtett csapda a lábad alatt kattan. Életerőd csökken, de túléled — most óvatosabban folytasd.",
+      "choices": [
+        {
+          "label": "Tovább",
+          "target": 5,
+          "effects": [
+            {
+              "type": "changeStamina",
+              "amount": -2
+            }
+          ]
+        }
+      ],
+      "encounters": [],
+      "entryEffects": [],
+      "autoContinue": true
+    }
+  }
+}
